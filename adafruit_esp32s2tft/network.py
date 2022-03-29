@@ -124,9 +124,9 @@ class Network(NetworkBase):
                 if self._mqtt_client is not None:
                     self._mqtt_client.loop(*args, **kwargs)
             except MQTT.MMQTTException as err:
-                print("MMQTTException: {0}".format(err))
+                print(f"MMQTTException: {err}")
             except OSError as err:
-                print("OSError: {0}".format(err))
+                print(f"OSError: {err}")
         else:
             if self._mqtt_client is not None:
                 self._mqtt_client.loop(*args, **kwargs)
@@ -144,7 +144,7 @@ class Network(NetworkBase):
                 if self._mqtt_client is not None:
                     self._mqtt_client.publish(*args, **kwargs)
             except OSError as err:
-                print("OSError: {0}".format(err))
+                print(f"OSError: {err}")
         else:
             if self._mqtt_client is not None:
                 self._mqtt_client.publish(*args, **kwargs)
