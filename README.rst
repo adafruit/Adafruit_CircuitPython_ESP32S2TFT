@@ -56,7 +56,7 @@ following command to install:
 
 .. code-block:: shell
 
-    circup install esp32s2tft
+    circup install adafruit_esp32s2tft
 
 Or the following command to update an existing version:
 
