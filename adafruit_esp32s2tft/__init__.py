@@ -80,13 +80,17 @@ class ESP32S2TFT(PortalBase):
         rotation: int = 0,
         scale: int = 1,
         debug: bool = False,
+        use_network: bool = True
     ) -> None:
 
-        network = Network(
-            status_neopixel=status_neopixel,
-            extract_values=False,
-            debug=debug,
-        )
+        if use_network:
+            network = Network(
+                status_neopixel=status_neopixel,
+                extract_values=False,
+                debug=debug,
+            )
+        else:
+            network = None
 
         graphics = Graphics(
             default_bg=default_bg,
