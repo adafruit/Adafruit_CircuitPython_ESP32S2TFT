@@ -63,6 +63,9 @@ class ESP32S2TFT(PortalBase):
                      portrait/rotated
     :param scale: Default scale is 1, but can be an integer of 1 or greater
     :param debug: Turn on debug print outs. Defaults to False.
+    :param use_network: Enable network initialization. Defaults to True.
+                        Setting to False will allow you to use the library without a secrets.py
+                        file with wifi configuration in it.
 
     """
 
