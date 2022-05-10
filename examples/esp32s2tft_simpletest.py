@@ -7,10 +7,7 @@ import random
 from rainbowio import colorwheel
 from adafruit_esp32s2tft import ESP32S2TFT
 
-esp32s2tft = ESP32S2TFT(
-    default_bg=0xFFFF00,
-    scale=2,
-)
+esp32s2tft = ESP32S2TFT(default_bg=0xFFFF00, scale=2, use_network=False)
 
 # Create the labels
 esp32s2tft.add_text(
