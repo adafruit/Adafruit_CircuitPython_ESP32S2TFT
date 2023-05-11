@@ -85,7 +85,6 @@ class ESP32S2TFT(PortalBase):
         debug: bool = False,
         use_network: bool = True
     ) -> None:
-
         if use_network:
             network = Network(
                 status_neopixel=status_neopixel,
