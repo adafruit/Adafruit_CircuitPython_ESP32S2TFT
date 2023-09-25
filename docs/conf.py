@@ -34,6 +34,7 @@ autodoc_mock_imports = [
     "wifi",
     "socketpool",
     "secrets",
+    "bitmaptools",
 ]
 
 intersphinx_mapping = {
