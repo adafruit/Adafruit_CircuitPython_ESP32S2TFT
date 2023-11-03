@@ -26,7 +26,7 @@ button_label = esp32s2tft.add_text(
     text_anchor_point=(0.5, 0.5),
     text_color=0x606060,
 )
-esp32s2tft.display.show(esp32s2tft.splash)
+esp32s2tft.display.root_group = esp32s2tft.splash
 
 while True:
     esp32s2tft.set_text_color(
