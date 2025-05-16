@@ -28,9 +28,8 @@ Implementation Notes
 """
 
 import board
-from digitalio import DigitalInOut, Direction, Pull
 import neopixel
-
+from digitalio import DigitalInOut, Direction, Pull
 
 __version__ = "0.0.0+auto.0"
 __repo__ = "https://github.com/adafruit/Adafruit_CircuitPython_ESP32S2TFT.git"
@@ -45,7 +44,6 @@ class Peripherals:
             See https://circuitpython.readthedocs.io/projects/neopixel/en/latest/api.html
     """
 
-    # pylint: disable=too-many-instance-attributes, too-many-locals, too-many-branches, too-many-statements
     def __init__(self) -> None:
         # Neopixel
         self.neopixel = neopixel.NeoPixel(board.NEOPIXEL, 1, brightness=0.3)
