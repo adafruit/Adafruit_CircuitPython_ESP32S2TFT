@@ -58,7 +58,6 @@ class Network(NetworkBase):
 
     """
 
-    # pylint: disable=too-many-instance-attributes, too-many-locals, too-many-branches, too-many-statements
     def __init__(
         self,
         *,
@@ -75,17 +74,15 @@ class Network(NetworkBase):
 
     def init_io_mqtt(self) -> IO_MQTT:
         """Initialize MQTT for Adafruit IO"""
-        try:
-            aio_username = self._secrets["aio_username"]
-            aio_key = self._secrets["aio_key"]
-        except KeyError:
-            raise KeyError(
-                "Adafruit IO secrets are kept in secrets.py, please add them there!\n\n"
-            ) from KeyError
+        aio_username = self._get_setting["ADAFRUIT_AIO_USERNAME"]
+        aio_key = self._get_setting["ADAFRUIT_AIO_KEY"]
+        if aio_username is None or aio_key is None:
+            raise AttributeError(
+                "Adafruit IO keys are kept in settings.toml, please add them there."
+            )
 
         return self.init_mqtt(IO_MQTT_BROKER, 8883, aio_username, aio_key, True)
 
-    # pylint: disable=too-many-arguments
     def init_mqtt(
         self,
         broker: str,
@@ -108,8 +105,6 @@ class Network(NetworkBase):
             self._mqtt_client = IO_MQTT(self._mqtt_client)
 
         return self._mqtt_client
-
-    # pylint: enable=too-many-arguments
 
     def _get_mqtt_client(self) -> Union[MQTT.MQTT, IO_MQTT]:
         if self._mqtt_client is not None:

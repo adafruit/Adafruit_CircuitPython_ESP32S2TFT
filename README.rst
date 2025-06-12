@@ -17,9 +17,9 @@ Introduction
     :alt: Build Status
 
 
-.. image:: https://img.shields.io/badge/code%20style-black-000000.svg
-    :target: https://github.com/psf/black
-    :alt: Code Style: Black
+.. image:: https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json
+    :target: https://github.com/astral-sh/ruff
+    :alt: Code Style: Ruff
 
 Helper library for the Adafruit ESP32-S2 TFT Feather.
 
@@ -29,6 +29,11 @@ Dependencies
 This driver depends on:
 
 * `Adafruit CircuitPython <https://github.com/adafruit/circuitpython>`_
+* `Adafruit CircuitPython Connection Manager <https://github.com/adafruit/Adafruit_CircuitPython_ConnectionManager/>`_
+* `Adafruit CircuitPython MiniMQTT <https://github.com/adafruit/Adafruit_CircuitPython_MiniMQTT/>`_
+* `Adafruit CircuitPython NeoPixel <https://github.com/adafruit/Adafruit_CircuitPython_NeoPixel/>`_
+* `Adafruit CircuitPython Requests <https://github.com/adafruit/Adafruit_CircuitPython_Requests/>`_
+* `Adafruit CircuitPython PortalBase <https://github.com/adafruit/Adafruit_CircuitPython_PortalBase/>`_
 
 Please ensure all dependencies are available on the CircuitPython filesystem.
 This is easily achieved by downloading
@@ -95,7 +100,7 @@ Usage Example
         text_anchor_point=(0.5, 0.5),
         text_color=0x606060,
     )
-    esp32s2tft.display.show(esp32s2tft.root_group)
+    esp32s2tft.display.root_group = esp32s2tft.root_group
 
     while True:
         esp32s2tft.set_text_color(
