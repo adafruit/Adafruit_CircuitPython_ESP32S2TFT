@@ -28,14 +28,16 @@ Implementation Notes
 """
 
 import ssl
+
 from adafruit_portalbase.network import NetworkBase
 from adafruit_portalbase.wifi_esp32s2 import WiFi
 
 try:
-    from typing import Optional, Union, Callable
-    from neopixel import NeoPixel
-    from adafruit_io.adafruit_io import IO_MQTT
+    from typing import Callable, Optional, Union
+
     import adafruit_minimqtt.adafruit_minimqtt as MQTT
+    from adafruit_io.adafruit_io import IO_MQTT
+    from neopixel import NeoPixel
 except ImportError:
     pass
 
@@ -114,9 +116,7 @@ class Network(NetworkBase):
             return self._mqtt_client
         raise RuntimeError("Please initialize MQTT before using")
 
-    def mqtt_loop(
-        self, *args: int, suppress_mqtt_errors: bool = True, **kwargs: int
-    ) -> None:
+    def mqtt_loop(self, *args: int, suppress_mqtt_errors: bool = True, **kwargs: int) -> None:
         """Run the MQTT Loop"""
         self._get_mqtt_client()
         if suppress_mqtt_errors:
@@ -127,9 +127,8 @@ class Network(NetworkBase):
                 print(f"MMQTTException: {err}")
             except OSError as err:
                 print(f"OSError: {err}")
-        else:
-            if self._mqtt_client is not None:
-                self._mqtt_client.loop(*args, **kwargs)
+        elif self._mqtt_client is not None:
+            self._mqtt_client.loop(*args, **kwargs)
 
     def mqtt_publish(
         self,
@@ -145,13 +144,10 @@ class Network(NetworkBase):
                     self._mqtt_client.publish(*args, **kwargs)
             except OSError as err:
                 print(f"OSError: {err}")
-        else:
-            if self._mqtt_client is not None:
-                self._mqtt_client.publish(*args, **kwargs)
+        elif self._mqtt_client is not None:
+            self._mqtt_client.publish(*args, **kwargs)
 
-    def mqtt_connect(
-        self, *args: Union[bool, str, int], **kwargs: Union[bool, str, int]
-    ) -> None:
+    def mqtt_connect(self, *args: Union[bool, str, int], **kwargs: Union[bool, str, int]) -> None:
         """Connect to MQTT"""
         self._get_mqtt_client()
         if self._mqtt_client is not None:

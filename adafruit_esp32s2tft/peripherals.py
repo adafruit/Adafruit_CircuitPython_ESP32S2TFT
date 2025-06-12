@@ -28,9 +28,8 @@ Implementation Notes
 """
 
 import board
-from digitalio import DigitalInOut, Direction, Pull
 import neopixel
-
+from digitalio import DigitalInOut, Direction, Pull
 
 __version__ = "0.0.0+auto.0"
 __repo__ = "https://github.com/adafruit/Adafruit_CircuitPython_ESP32S2TFT.git"
