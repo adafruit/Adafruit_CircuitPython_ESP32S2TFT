@@ -35,11 +35,12 @@ from adafruit_portalbase.wifi_esp32s2 import WiFi
 try:
     from typing import Callable, Optional, Union
 
-    import adafruit_minimqtt.adafruit_minimqtt as MQTT
-    from adafruit_io.adafruit_io import IO_MQTT
     from neopixel import NeoPixel
 except ImportError:
     pass
+
+import adafruit_minimqtt.adafruit_minimqtt as MQTT
+from adafruit_io.adafruit_io import IO_MQTT
 
 __version__ = "0.0.0+auto.0"
 __repo__ = "https://github.com/adafruit/Adafruit_CircuitPython_ESP32S2TFT.git"
