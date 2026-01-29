@@ -44,9 +44,9 @@ class Peripherals:
             See https://circuitpython.readthedocs.io/projects/neopixel/en/latest/api.html
     """
 
-    def __init__(self) -> None:
+    def __init__(self, *, neopixel_brightness: float = 0.3) -> None:
         # Neopixel
-        self.neopixel = neopixel.NeoPixel(board.NEOPIXEL, 1, brightness=0.3)
+        self.neopixel = neopixel.NeoPixel(board.NEOPIXEL, 1, brightness=neopixel_brightness)
 
         # Button
         self._button = None
