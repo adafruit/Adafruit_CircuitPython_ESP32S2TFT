@@ -38,6 +38,8 @@ __repo__ = "https://github.com/adafruit/Adafruit_CircuitPython_ESP32S2TFT.git"
 class Peripherals:
     """Peripherals Helper Class for the ESP32S2TFT Library
 
+    :param neopixel_brightness: Brightness of the on-board NeoPixel. Should be a value
+                                between 0.0 and 1.0. Defaults to 0.3.
 
     Attributes:
         neopixel (Neopixel): The on-board NeoPixel.

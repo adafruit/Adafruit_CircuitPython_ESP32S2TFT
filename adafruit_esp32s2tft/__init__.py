@@ -65,7 +65,8 @@ class ESP32S2TFT(PortalBase):
     :param rotation: Default rotation is landscape (270) but can be 0, 90, or 180 for
                      portrait/rotated
     :param scale: Default scale is 1, but can be an integer of 1 or greater
-    :param neopixel_brightness: Brightness of the on-board NeoPixel. Defaults to 0.3.
+    :param neopixel_brightness: Brightness of the on-board NeoPixel. Should be a value
+                                between 0.0 and 1.0. Defaults to 0.3.
     :param debug: Turn on debug print outs. Defaults to False.
     :param use_network: Enable network initialization. Defaults to True.
                         Setting to False will allow you to use the library without a secrets.py
