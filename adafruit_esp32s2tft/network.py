@@ -75,8 +75,8 @@ class Network(NetworkBase):
 
     def init_io_mqtt(self) -> IO_MQTT:
         """Initialize MQTT for Adafruit IO"""
-        aio_username = self._get_setting["ADAFRUIT_AIO_USERNAME"]
-        aio_key = self._get_setting["ADAFRUIT_AIO_KEY"]
+        aio_username = self._get_setting("ADAFRUIT_AIO_USERNAME")
+        aio_key = self._get_setting("ADAFRUIT_AIO_KEY")
         if aio_username is None or aio_key is None:
             raise AttributeError(
                 "Adafruit IO keys are kept in settings.toml, please add them there."
@@ -101,6 +101,7 @@ class Network(NetworkBase):
             password=password,
             socket_pool=self._wifi.pool,
             ssl_context=ssl.create_default_context(),
+            is_ssl=True,
         )
         if use_io:
             self._mqtt_client = IO_MQTT(self._mqtt_client)
